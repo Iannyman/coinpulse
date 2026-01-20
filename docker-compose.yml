@@ -1,0 +1,13 @@
+services:
+  nextjs:
+    container_name: coinpulse-next
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3020:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - WATCHPACK_POLLING=true
