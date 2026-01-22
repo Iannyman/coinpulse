@@ -2,6 +2,7 @@ import { fetcher } from '@/lib/coingecko.action';
 import Image from 'next/image';
 import { formatCurrency } from '@/lib/utils';
 import { CoinOverviewFallback } from './fallback';
+import type { CoinDetailsData } from '@/type.s';
 
 const CoinOverview = async () => {
   let coin: CoinDetailsData | null = null;

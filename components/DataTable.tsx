@@ -7,6 +7,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
+import type { DataTableProps } from '@/type.s';
 
 const DataTable = <T,>({
   columns,

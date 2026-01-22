@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { TrendingUp, TrendingDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { TrendingCoinsFallback } from './fallback';
+import type { TrendingCoin, DataTableColumn } from '@/type.s';
 
 const TrendingCoins = async () => {
   let trendingCoins: { coins: TrendingCoin[] } | null = null;

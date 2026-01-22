@@ -70,7 +70,7 @@ interface CoinMarketData {
   last_updated: string;
 }
 
-interface TrendingCoin {
+export interface TrendingCoin {
   item: {
     id: string;
     name: string;
@@ -182,7 +182,7 @@ interface WebSocketMessage {
   identifier?: string;
 }
 
-interface CoinDetailsData {
+export interface CoinDetailsData {
   id: string;
   name: string;
   symbol: string;
@@ -274,15 +274,14 @@ interface UseCoinGeckoWebSocketReturn {
   isConnected: boolean;
 }
 
-interface DataTableColumn<T> {
+export interface DataTableColumn<T> {
   header: React.ReactNode;
   cell: (row: T, index: number) => React.ReactNode;
   headClassName?: string;
   cellClassName?: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface DataTableProps<T> {
+export interface DataTableProps<T> {
   columns: DataTableColumn<T>[];
   data: T[];
   rowKey: (row: T, index: number) => React.Key;
@@ -323,13 +322,11 @@ interface SearchItemProps {
   isActiveName: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface CoinGeckoErrorBody {
+export interface CoinGeckoErrorBody {
   error?: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type QueryParams = Record<string, string | number | boolean | undefined>;
+export type QueryParams = Record<string, string | number | boolean | undefined>;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface PoolData {
