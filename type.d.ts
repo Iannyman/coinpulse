@@ -1,12 +1,10 @@
 type OHLCData = [number, number, number, number, number];
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface NextPageProps {
   params: Promise<{ [key: string]: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface CandlestickChartProps {
   data?: OHLCData[];
   liveOhlcv?: OHLCData | null;
@@ -15,11 +13,10 @@ interface CandlestickChartProps {
   children?: React.ReactNode;
   mode?: 'historical' | 'live';
   initialPeriod?: Period;
-  liveInterval: '1s' | '1m';
-  setLiveInterval: (interval: '1s' | '1m') => void;
+  liveInterval?: '1s' | '1m';
+  setLiveInterval?: (interval: '1s' | '1m') => void;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface ConverterProps {
   symbol: string;
   icon: string;
@@ -41,7 +38,6 @@ interface Ticker {
 
 type Period = 'daily' | 'weekly' | 'monthly' | '3months' | '6months' | 'yearly' | 'max';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface CoinMarketData {
   id: string;
   symbol: string;
@@ -70,7 +66,7 @@ interface CoinMarketData {
   last_updated: string;
 }
 
-export interface TrendingCoin {
+interface TrendingCoin {
   item: {
     id: string;
     name: string;
@@ -101,7 +97,6 @@ interface SearchCoin {
 }
 
 // Chart Section Props (used in ChartSection.tsx)
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface ChartSectionProps {
   coinData: {
     image: { large: string };
@@ -115,7 +110,6 @@ interface ChartSectionProps {
   coinId: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface TopGainersLosers {
   id: string;
   name: string;
@@ -125,7 +119,6 @@ interface TopGainersLosers {
   priceChangePercentage24h: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface TopGainersLosersResponse {
   id: string;
   name: string;
@@ -137,7 +130,6 @@ interface TopGainersLosersResponse {
   market_cap_rank: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface PriceData {
   usd: number;
 }
@@ -160,7 +152,6 @@ interface ExtendedPriceData {
   timestamp?: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface WebSocketMessage {
   type?: string;
   c?: string;
@@ -182,7 +173,7 @@ interface WebSocketMessage {
   identifier?: string;
 }
 
-export interface CoinDetailsData {
+interface CoinDetailsData {
   id: string;
   name: string;
   symbol: string;
@@ -231,7 +222,6 @@ export interface CoinDetailsData {
   tickers: Ticker[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface LiveDataProps {
   coinId: string;
   poolId: string;
@@ -240,7 +230,6 @@ interface LiveDataProps {
   children?: React.ReactNode;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface LiveCoinHeaderProps {
   name: string;
   image: string;
@@ -250,7 +239,6 @@ interface LiveCoinHeaderProps {
   priceChange24h: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Category {
   name: string;
   top_3_coins: string[];
@@ -259,14 +247,12 @@ interface Category {
   volume_24h: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface UseCoinGeckoWebSocketProps {
   coinId: string;
   poolId: string;
   liveInterval?: '1s' | '1m';
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface UseCoinGeckoWebSocketReturn {
   price: ExtendedPriceData | null;
   trades: Trade[];
@@ -274,14 +260,14 @@ interface UseCoinGeckoWebSocketReturn {
   isConnected: boolean;
 }
 
-export interface DataTableColumn<T> {
+interface DataTableColumn<T> {
   header: React.ReactNode;
   cell: (row: T, index: number) => React.ReactNode;
   headClassName?: string;
   cellClassName?: string;
 }
 
-export interface DataTableProps<T> {
+interface DataTableProps<T> {
   columns: DataTableColumn<T>[];
   data: T[];
   rowKey: (row: T, index: number) => React.Key;
@@ -295,40 +281,35 @@ export interface DataTableProps<T> {
 
 type ButtonSize = 'default' | 'sm' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type PaginationLinkProps = {
   isActive?: boolean;
   size?: ButtonSize;
 } & React.ComponentProps<'a'>;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Pagination {
   currentPage: number;
   totalPages: number;
   hasMorePages: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface HeaderProps {
   trendingCoins: TrendingCoin[];
 }
 
 type SearchItemCoin = SearchCoin | TrendingCoin['item'];
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface SearchItemProps {
   coin: SearchItemCoin;
   onSelect: (coinId: string) => void;
   isActiveName: boolean;
 }
 
-export interface CoinGeckoErrorBody {
+interface CoinGeckoErrorBody {
   error?: string;
 }
 
-export type QueryParams = Record<string, string | number | boolean | undefined>;
+type QueryParams = Record<string, string | number | boolean | undefined>;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface PoolData {
   id: string;
   address: string;

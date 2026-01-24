@@ -1,5 +1,4 @@
 import DataTable from '../DataTable';
-import type { DataTableColumn } from '@/type.s';
 
 const CoinOverviewFallback = () => {
   return (
