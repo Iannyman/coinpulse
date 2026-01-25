@@ -24,7 +24,7 @@ const Categories = async () => {
         const isTrendingUP = category.market_cap_change_24h > 0;
 
         return (
-          <div className={cn('change-cell000', isTrendingUP ? 'text-green-500' : 'text-red-500')}>
+          <div className={cn('change-cell', isTrendingUP ? 'text-green-500' : 'text-red-500')}>
             <p className="flex items-center gap-1">
               {formatPercentage(category.market_cap_change_24h)}
               {isTrendingUP ? (
@@ -44,7 +44,7 @@ const Categories = async () => {
     },
     {
       header: '24h Volume',
-      cellClassName: '24h-volume-cell',
+      cellClassName: 'volume-cell',
       cell: (category) => formatCurrency(category.volume_24h),
     },
   ];
