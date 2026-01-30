@@ -25,7 +25,11 @@ const Coins = async ({ searchParams }: NextPageProps) => {
     });
   } catch (error) {
     console.error('Error fetching market data: ', error);
-    <CoinsFallback />;
+    return <CoinsFallback />;
+  }
+
+  if (!coinsData) {
+    return <CoinsFallback />;
   }
 
   const columns: DataTableColumn<CoinMarketData>[] = [
@@ -35,7 +39,9 @@ const Coins = async ({ searchParams }: NextPageProps) => {
       cell: (coin) => (
         <>
           #{coin.market_cap_rank}
-          <Link href={`/coins/${coin.id}`} aria-label="View coin" />
+          <Link href={`/coins/${coin.id}`} aria-label="View coin">
+            <span className="sr-only">View {coin.name}</span>
+          </Link>
         </>
       ),
     },
