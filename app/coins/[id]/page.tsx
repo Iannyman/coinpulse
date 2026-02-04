@@ -24,6 +24,14 @@ const Page = async ({ params }: NextPageProps) => {
     ]);
   } catch (error) {
     console.error('Error fetching coin details:', error);
+    return (
+      <main id="coin-details-page">
+        <section className="primary">
+          <h1 className="text-3xl font-bold">Error loading coin data</h1>
+          <p>Unable to fetch details for coin: {id}</p>
+        </section>
+      </main>
+    );
   }
 
   const coinDetails = [

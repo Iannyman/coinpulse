@@ -65,7 +65,7 @@ const CoinHeader = ({
               className={cn('value', { 'text-green-500': stat.isUp, 'text-red-500': !stat.isUp })}
             >
               <p>{stat.formatter(stat.value)}</p>
-              {stat.showIcon && stat.isUp ? <TrendingUp /> : <TrendingDown />}
+              {stat.showIcon && (stat.isUp ? <TrendingUp /> : <TrendingDown />)}
             </div>
           </li>
         ))}

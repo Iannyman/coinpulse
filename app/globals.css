@@ -850,7 +850,7 @@
       @apply flex gap-3 items-center;
 
       img {
-        @apply size-8.25 sm:size-9.5 xl:size-12.25;
+        @apply size-11.25 sm:size-12.5 xl:size-19.25;
       }
     }
 
