@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  allowedDevOrigins: ['coinpulse.tdaniel.win'],
 };
 
 export default nextConfig;
