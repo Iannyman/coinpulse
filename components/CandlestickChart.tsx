@@ -23,12 +23,11 @@ const CandlestickChart = ({
 
   const fetchOHLCData = async (selectedPeriod: Period) => {
     try {
-      const { days, interval } = PERIOD_CONFIG[selectedPeriod];
+      const { days } = PERIOD_CONFIG[selectedPeriod];
 
       const newData = await fetcher<OHLCData[]>(`/coins/${coinId}/ohlc`, {
         vs_currency: 'usd',
         days: days,
-        // interval: interval,
         precision: 'full',
       });
 
@@ -51,7 +50,9 @@ const CandlestickChart = ({
     const container = chartContainerRef.current;
     if (!container) return;
 
-    const showTime = ['daily', 'weekly', 'monthly'].includes(period);
+    const showTime = ['daily', 'weekly', 'monthly', '3months', '6months', 'yearly', 'max'].includes(
+      period
+    );
 
     const chart = createChart(container, {
       ...getChartConfig(height, showTime),
@@ -82,7 +83,7 @@ const CandlestickChart = ({
       chartRef.current = null;
       candleSeriesRef.current = null;
     };
-  }, [height, period]);
+  }, [height, ohlcData, period]);
 
   useEffect(() => {
     if (!candleSeriesRef.current) return;

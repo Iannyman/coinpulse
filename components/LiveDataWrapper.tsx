@@ -2,7 +2,7 @@ import CandlestickChart from './CandlestickChart';
 import CoinHeader from './CoinHeader';
 import { Separator } from './ui/separator';
 
-const LiveDataWrapper = async ({ children, coinId, coin, coinOHLCData }: LiveDataProps) => {
+const LiveDataWrapper = async ({ coinId, coin, coinOHLCData }: LiveDataProps) => {
   const currentPrice = coin.market_data?.current_price?.usd;
   const priceChange24h = coin.market_data?.price_change_percentage_24h_in_currency?.usd;
   const priceChange30d = coin.market_data?.price_change_percentage_30d_in_currency?.usd;
@@ -25,7 +25,6 @@ const LiveDataWrapper = async ({ children, coinId, coin, coinOHLCData }: LiveDat
           <h4>Trend Overview</h4>
         </CandlestickChart>
       </div>
-      <Separator className="divider" />
     </section>
   );
 };

@@ -56,13 +56,15 @@ const Page = async ({ params }: NextPageProps) => {
     {
       label: 'Explorer',
       value: '-',
-      link: coinData.links.subreddit_url ? normalizeUrl(coinData.links.subreddit_url) : undefined,
+      link: coinData.links.blockchain_site[0]
+        ? normalizeUrl(coinData.links.blockchain_site[0])
+        : undefined,
       linkText: 'Explorer',
     },
     {
       label: 'Community',
       value: '-',
-      link: normalizeUrl(coinData.links.subreddit_url),
+      link: coinData.links.subreddit_url ? normalizeUrl(coinData.links.subreddit_url) : undefined,
       linkText: 'Community',
     },
   ];
@@ -70,13 +72,7 @@ const Page = async ({ params }: NextPageProps) => {
   return (
     <main id="coin-details-page">
       <section className="primary">
-        <LiveDataWrapper coinId={id} coin={coinData} coinOHLCData={coinOHLCData}>
-          <h4>Exchange Listings</h4>
-        </LiveDataWrapper>
-
-        <h1 className="text-3xl font-bold">
-          Coin <strong>{id}</strong>
-        </h1>
+        <LiveDataWrapper coinId={id} coin={coinData} coinOHLCData={coinOHLCData} />
       </section>
 
       <section className="secondary">
@@ -108,7 +104,6 @@ const Page = async ({ params }: NextPageProps) => {
             ))}
           </ul>
         </div>
-        <p>Top Gainers and Losers</p>
       </section>
     </main>
   );
