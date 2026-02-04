@@ -118,3 +118,9 @@ export const buildPageNumbers = (
 
   return pages;
 };
+
+export function normalizeUrl(url: string): string {
+  if (!url) return '';
+  // Replace http:// with https://
+  return url.replace(/^http:\/\//i, 'https://');
+}
